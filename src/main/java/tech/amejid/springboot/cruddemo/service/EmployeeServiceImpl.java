@@ -33,6 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeDAO.save(employee);
     }
 
+    @Transactional
     @Override
     public void deleteById(int id) {
         employeeDAO.deleteById(id);
