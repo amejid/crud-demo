@@ -2,6 +2,7 @@ package tech.amejid.springboot.cruddemo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tech.amejid.springboot.cruddemo.dao.EmployeeDAO;
 import tech.amejid.springboot.cruddemo.entity.Employee;
 
@@ -19,5 +20,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Employee> findAll() {
         return employeeDAO.findAll();
+    }
+
+    @Override
+    public Employee findById(int id) {
+        return employeeDAO.findById(id);
+    }
+
+    @Transactional
+    @Override
+    public Employee save(Employee employee) {
+        return employeeDAO.save(employee);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        employeeDAO.deleteById(id);
     }
 }
